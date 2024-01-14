@@ -6,7 +6,8 @@ export const Container = styled.View`
   align-items: center;
 
   width: 100%;
-  height: 136px;
+
+  margin: 36px 0;
 `
 
 export const Profile = styled.Image`
