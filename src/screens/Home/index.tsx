@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import uuid from 'react-native-uuid'
+import { useNavigation } from '@react-navigation/native'
 
 import { Header } from '@components/Header'
 import { Percent } from '@components/Percent'
@@ -72,10 +73,16 @@ export function Home() {
     },
   ])
 
+  const navigation = useNavigation()
+
+  function handleOpenStats() {
+    navigation.navigate('stats')
+  }
+
   return (
     <Container>
       <Header />
-      <Percent />
+      <Percent onOpenStats={handleOpenStats} />
 
       <Title>Refeições</Title>
       <ButtonIcon title="Nova refeição" showIcon={true} />
