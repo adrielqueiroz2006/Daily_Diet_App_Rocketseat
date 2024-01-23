@@ -79,13 +79,21 @@ export function Home() {
     navigation.navigate('stats')
   }
 
+  function handleOpenNewMeal() {
+    navigation.navigate('new')
+  }
+
   return (
     <Container>
       <Header />
       <Percent onOpenStats={handleOpenStats} />
 
       <Title>Refeições</Title>
-      <ButtonIcon title="Nova refeição" showIcon={true} />
+      <ButtonIcon
+        title="Nova refeição"
+        showIcon={true}
+        onNavigate={handleOpenNewMeal}
+      />
 
       <SectionList
         sections={meals}

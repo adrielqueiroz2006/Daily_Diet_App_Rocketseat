@@ -1,3 +1,6 @@
+import { View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+
 import {
   Container,
   InfoWrapper,
@@ -13,19 +16,24 @@ import {
   Icon,
   Button,
 } from './styles'
-import { View } from 'react-native'
 
 type Props = {
   type?: ContainerStyleProps
 }
 
 export function Stats({ type = 'PRIMARY' }: Props) {
+  const navigation = useNavigation()
+
+  function handleBackHome() {
+    navigation.navigate('home')
+  }
+
   return (
     <View>
       <Percent type={type}>
         <PercentNumber>90,86%</PercentNumber>
         <PercentDescription>das refeições dentro da dieta</PercentDescription>
-        <Button>
+        <Button onPress={handleBackHome}>
           <Icon type={type} />
         </Button>
       </Percent>
